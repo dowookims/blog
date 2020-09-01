@@ -47,14 +47,13 @@ class Layout extends Component {
               <li>{toggler}</li>
             </ul>
             <ul className="header-link">
-              <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://github.com/dowookims" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
           </div>
         </div>
         <main>{children}</main>
         <footer className="footer-copyright">
-          © {new Date().getFullYear()} {title}, Built with
+          © {new Date().getFullYear()} {title}, Built with Vapor blog Theme
           {` `}
           <a className="footer-gatsby" href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>

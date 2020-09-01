@@ -2,13 +2,10 @@ const remark = require("remark");
 
 module.exports = {
   siteMetadata: {
-    title: `Vapor`,
-    author: `Vaporwavy`,
-    description: `A blog for minimalist`,
-    siteUrl: `https://vapor.aesthetic.codes/`,
-    social: {
-      twitter: ``,
-    },
+    title: `Douglas`,
+    author: `dowookims`,
+    description: `Jr. FED tech blog`,
+    siteUrl: `https://dowoo.kim/`,
   },
   plugins: [
     {
