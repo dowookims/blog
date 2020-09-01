@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+:root{
+  overflow-y: scroll;
+
+  /* Fonts */
+  --font-title: 'Playfair Display', serif;
+  --font-sans-serif: 'Open Sans', sans-serif;
+  --font-serif: serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-heavy: 900;
+}
+
+body.light {
+  --color-bg: rgba(255, 255, 255, 0.9);
+  --color-font: rgba(0, 0, 0, 0.8);
+  --color-postcard: rgba(0, 0, 0, 0.1);
+
+  --color-blue: rgb(0, 122, 255);
+  --color-green: rgb(52, 199, 89);
+  --color-indigo: rgb(88, 86, 214);
+  --color-orange: rgb(255, 149, 0);
+  --color-pink: rgb(255, 45, 85);
+  --color-purple: rgb(175, 82, 222);
+  --color-red: rgb(255, 59, 48);
+  --color-teal: rgb(90, 200, 250);
+  --color-yellow: rgb(255, 204, 0);
+  --color-gray-1: rgb(142, 142, 147);
+  --color-gray-2: rgb(174, 174, 178);
+  --color-gray-3: rgb(199, 199, 204);
+  --color-gray-4: rgb(209, 209, 214);
+  --color-gray-5: rgb(229, 229, 234);
+  --color-gray-6: rgb(242, 242, 247);
+}
+
+body.dark {
+  --color-bg: rgba(0, 0, 0, 0.9);
+  --color-font: rgba(255, 255, 255, 0.8);
+  --color-postcard: rgba(255, 255, 255, 0.1);
+
+  --color-blue: rgb(10, 132, 255);
+  --color-green: rgb(48, 209, 88);
+  --color-indigo: rgb(94, 92, 230);
+  --color-orange: rgb(255, 159, 10);
+  --color-pink: rgb(255, 55, 95);
+  --color-purple: rgb(191, 90, 242);
+  --color-red: rgb(255, 69, 58);
+  --color-teal: rgb(100, 210, 255);
+  --color-yellow: rgb(255, 214, 10);
+  --color-gray-1: rgb(142, 142, 147);
+  --color-gray-2: rgb(99, 99, 102);
+  --color-gray-3: rgb(72, 72, 74);
+  --color-gray-4: rgb(58, 58, 60);
+  --color-gray-5: rgb(44, 44, 46);
+  --color-gray-6: rgb(28, 28, 30);
+}
