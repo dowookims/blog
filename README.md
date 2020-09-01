@@ -1,56 +1,15 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9341307c-45dd-4791-bccd-817d38c63663/deploy-status)](https://app.netlify.com/sites/relaxed-blackwell-495433/deploys)
+
 <h1 align="center">
-  Vapor
+  <a href="https://dowoo.kim" target="_blank" style="color:#333; text-decoration:none;" >Douglas Dev Blog</a>
 </h1>
 
-A custom, simple theme for Gatsby. Made for minimalist. Completely free and fully responsive, released under the MIT license.
+https://dowoo.kim
 
-**Demo: https://vapor.aesthetic.codes**
+주니어 프론트엔드 개발자 Douglas의 개발 블로그 입니다.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/vaporwavy/gatsby-vapor)
-
----
-
-### Features of Vapor
-* Support Tag
-* Post Search
-* Toggle Dark themes
-
+업무에서 개발을 진행하면서 겪었던 문제들 또는 공부할, 공부하고 있는 내용들을 포스팅 하기 위해 블로그를 만들었습니다.
 
 ---
-
-_First time with Gatsby? Take a look on the [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
-
-
-
-## 🚀 Quick start
-
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
-
-    ```shell
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/vaporwavy/gatsby-vapor
-    ```
-
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-blog-starter/
-    gatsby develop
-    ```
-
-1.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### Thanks to
+Gatsby BLOG인 Vapor THEME을 사용하였습니다.
