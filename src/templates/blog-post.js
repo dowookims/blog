@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
             <h1>
               {post.frontmatter.title}
             </h1>
-            <p>
+            <p style={{textAlign: 'right'}}>
               {post.frontmatter.date}
             </p>
             {post.frontmatter.thumbnail && <Img

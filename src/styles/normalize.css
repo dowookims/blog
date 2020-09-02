@@ -12,6 +12,15 @@ body {
 p {
     line-height: 1.75em;
 }
+
+a {
+    color: #333;
+};
+
+a:visited {
+    color: #999;
+}
+
 hr {
     border: 0em;
     height: 0.0625rem;
