@@ -88,7 +88,7 @@ b = 7;
 
 기본형 데이터는 모두 불변값이고 참조형 데이터는 모두 가변값일거 같은 느낌이 듭니다. 기본적으로 가변값인 경우가 많으나 설정에 따라 변경 불가능한 경우도 있고(Object.defineProperty, Object.freeze),  아예 불변값으로 활용하는 방안도 있습니다.
 
-[mozila -GC](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)
+[mozila -GC](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)  
 [Javascript info -GC](https://ko.javascript.info/garbage-collection)
 
 ## 변수 복사 비교
