@@ -114,3 +114,62 @@ var obj2 = obj1;
 이렇게 주소값을 참조하기 때문에, 객체의 복사 `obj2 = obj1`의 경우, obj1나 obj2가 값을 변경하여도 참조하는 주소는 동일하기 때문에 객체 변경시 서로 영향을 받게 됩니다.  
 
 즉, 자바스크립트의 모든 데이터 타입은 참조형 데이터로 주소값을 참조하지만, 원시형 자료형의 경우 주소값을 복사하는 과정이 한번만 이루어지고, 참조형 자료형의 경우 단계를 더 거치기 때문에 차이가 발생하게 됩니다.
+
+## undefined와 null
+
+'없음' 을 나타내는 값입니다. 두 값의 의미와 목적은 다릅니다.
+
+### undefined
+
+`undefined`의 경우 사용자가 명시적으로 지정할 수도 있지만 값이 존재하지 않을 때 JS 엔진이 자동으로 부여하는 경우도 있습니다.  
+자바스크립트 엔진은 사용자가 어떤 값을 지정할 것이라 예상되는 상황에서 실제로 사용자가 값을 지정하지 않았을 때 `undefined`를 반환합니다. 자바스크립트 엔진이 undefined를 반환하는 경우는 다음과 같습니다.
+
+* 값을 대입하지 않은 변수
+* 객체 내부의 존재하지 않는 프로퍼티에 접근
+* return 문이 없거나 호출되지 않는 함수의 실행 결과
+
+```js
+let a;;
+console.log(a) //undefined
+
+const obj = { a: 1};
+console.log(obj.a) // 1
+console.log(obj.b) // undefined
+console.log(b) // c.f) ReferenceError : b is not defined
+
+const fn = function() {};
+var c = fn(); // undefined;
+console.log(c); // undefined
+
+let arr = [];
+arr.length = 3;
+console.log(arr) // [ empty x 3];
+
+let arr2 = new Array(3);
+console.log(arr2) // [empty x 3];
+
+let arr3 = [undefined, undefined, undefined] // [undefined, undefined, undefined]
+```
+
+```js
+var arr1 = [undefined, undefined, undefined];
+var arr2 = new Array(5);
+
+arr1.forEach((v,i) => { console.log(v,i) }) // undefined 0 / 1 1
+arr2.forEach((v,i) => { console.log(v,i) }) // 1 1
+
+arr1.map((v,i) => return v + i); // [NaN, 2]
+arr2.map((v,i) => return v + i); // [ empty, 2]
+
+arr1.filter(v => !v); // [undefined]
+arr2.filter(v => !v); // []
+```
+
+위처럼 몇몇 배열의 메서드의 경우, `empty`인 배열의 요소를 순회하지 않는 경우도 있습니다. 이는, 배열도 객체이기 때문에 값이 지정되지 않은 인덱스의 경우 '아직은 존재하지 않는  프로퍼티'에 지나지 않습니다.
+
+여기서 사용자가 명시적으로 `undefined` 를 부여한 경우와 비어있는 요소에 접근하려 할 때 반환되는 `undefined`는 비어 있음의 의미를 가지고 있지만, 전자의 `undefined`는 존재하는 값으로 동작하며, 프로퍼티나 배열의 요소는 고유의 키값이 실존하게 되어서 순회의 대상이 될 수 있습니다. 그러나 사용자가 아무것도 하지 않은 채 접근하려 했을 때 JS엔진이 반환해주는 `undefined`는 해당 프로퍼티 또는 배열의 키값 자체가 존재하지 않음을 의미합니다.
+
+그렇기 때문에, 우리가 값이 없음을 명시해 주려고 할 때, 자바스크립트 엔진이 반환해주는 `undefined`를 고수해서 사용할 필요가 없이, 개발자가 의도적으로 빈 값을 넣을 경우에 `null`을 사용하면 되고, `null`은 이런 의도로 만들어진 것 입니다.
+
+여기서 JS 버그가 존재하게 되는데, `typeof null`이 `object`라는 것 입니다. 그래서 타입 체킹을 할 때 이 부분을 유념하여 작업을 해야합니다.
+
