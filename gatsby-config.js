@@ -2,9 +2,9 @@ const remark = require("remark");
 
 module.exports = {
   siteMetadata: {
-    title: `Douglas`,
+    title: `DouglasK`,
     author: `dowookims`,
-    description: `Jr. FED tech blog`,
+    description: `주니어 프론트엔드 개발자 DouglasK의 개발 블로그 입니다. 자바스크립트와 Vue, React와 CSS 그리고 개발 일지에 대해 기록합니다.`,
     siteUrl: `https://dowoo.kim/`,
   },
   plugins: [
