@@ -11,5 +11,13 @@ https://dowoo.kim
 업무에서 개발을 진행하면서 겪었던 문제들 또는 공부할, 공부하고 있는 내용들을 포스팅 하기 위해 블로그를 만들었습니다.
 
 ---
+
+### BOOK
+
+#### Javascript
+
+* 코어 자바스크립트
+
+---
 ### Thanks to
 Gatsby BLOG인 Vapor THEME을 사용하였습니다.
