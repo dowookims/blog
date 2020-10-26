@@ -1,7 +1,7 @@
 ---
-title: JAVASCIPRT Array에 대해 알아보자
-date: "2020-09-02"
-tags: [javascript]
+title: 나는 몰랐던 HTML의 Details element
+date: "2020-10-26"
+tags: [html]
 description: "Array는 어떻게 생겨먹은 녀석일까?"
 thumbnail: ./imgs/html.png
 ---
