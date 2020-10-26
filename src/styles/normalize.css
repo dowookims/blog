@@ -111,3 +111,8 @@ code {
 pre code{
     padding: 0em;
 }
+
+p > img {
+    max-width: 720px;
+    width: 100vw;
+}
