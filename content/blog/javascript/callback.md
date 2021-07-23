@@ -16,14 +16,15 @@ thumbnail: ./imgs/callback.png
 
 ```js
 const obj = {
-    vals: [1,2,3],
-    logValues: function(v, i) {
-        console.log(this, v, i);
-    }
+  vals: [1, 2, 3],
+  logValues: function(v, i) {
+    console.log(this, v, i)
+  },
 }
 
-obj.logValues(1,2) // { vals: [...], logValues: f..} 1 2
-[4,5,6].forEach(obj.logValues); // window { ... } 4 0, window { ... } 5 1, window { ... } 6 2
+obj
+  .logValues(1, 2) // { vals: [...], logValues: f..} 1 2
+  [(4, 5, 6)].forEach(obj.logValues) // window { ... } 4 0, window { ... } 5 1, window { ... } 6 2
 ```
 
 어떤 함수의 인자에 객체의 메서드를 전달하더라도 본질적으로는 함수를 값으로 전달하는 것을 이해해야 합니다.

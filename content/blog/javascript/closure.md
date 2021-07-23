@@ -30,34 +30,34 @@ console.log(a) // a is not defined;
 
 ```js
 var a = 1
-const outer = function () {
-    var a = 2;
-    const inner = function() {
-        console.log(++a);
-    };
-    return inner
-};
+const outer = function() {
+  var a = 2
+  const inner = function() {
+    console.log(++a)
+  }
+  return inner
+}
 
-const q = outer();
-q(); // 3
-q(); // 4
-console.log(a); // 1
+const q = outer()
+q() // 3
+q() // 4
+console.log(a) // 1
 ```
 
 ```js
 var a = 1
-const outer = function () {
-    a = 2;
-    const inner = function() {
-        console.log(++a);
-    };
-    return inner
-};
+const outer = function() {
+  a = 2
+  const inner = function() {
+    console.log(++a)
+  }
+  return inner
+}
 
-const q = outer();
-q(); // 3
-q(); // 4
-console.log(a); // 4
+const q = outer()
+q() // 3
+q() // 4
+console.log(a) // 4
 ```
 
 위에서 outer 함수를 정의했고, outer 함수 내부에 a라는 변수가 있습니다. 그리고 outer 함수에 inner라는 내부 함수를 정의했는데, 이 inner는 1 증가된 a를 콘솔에 찍습니다. 이후 `outer`는 내부함수인 `inner`를 반환하는데요, 이 `inner`는 함수 내부에서 `a`라는 변수를 사용하는데, 이 `a`는 `lexicalEnvironMent`에서 `outerEnvironmentReference`에 의해 참조된 outer 함수의 a 입니다.
@@ -69,17 +69,17 @@ outer 함수가 실행되고 나서 outer의 실행 컨텍스트는 GC에 의해
 이라고도 볼 수 있습니다. 여기서 주의할 점은, 외부로 전달이 return만을 의미하는 것은 아니라는 것 입니다.
 
 ```js
-(function() {
-    var a = 0;
-    var intervalId = null;
-    var inner = function() {
-        if (++a >= 10) {
-            clearInterval(intervalId);
-        }
-        console.log(a);
-    };
-    intervalId = setInterval(inner, 1000);
-})();
+;(function() {
+  var a = 0
+  var intervalId = null
+  var inner = function() {
+    if (++a >= 10) {
+      clearInterval(intervalId)
+    }
+    console.log(a)
+  }
+  intervalId = setInterval(inner, 1000)
+})()
 ```
 
 ```js
@@ -104,50 +104,50 @@ function() {
 
 ```js
 var outer = (function() {
-    var a = 1;
-    var inner = function () {
-        return ++a;
-    }
-    return inner;
-})();
+  var a = 1
+  var inner = function() {
+    return ++a
+  }
+  return inner
+})()
 
 console.log(outer()) // 2
 console.log(outer()) // 3
 console.log(outer()) // 4
-outer = null;
+outer = null
 ```
 
 ```js
-(function() {
-    var a = 0;
-    var intervalId = null;
-    var inner = function() {
-        if (++a > 10) {
-            clearInterval(intervalId);
-            inner = null; // inner 식별자의 함수 참조를 끊음
-        }
-        console.log(a);
-    };
-    intervalId = setInterval(inner, 300);
-})();
+;(function() {
+  var a = 0
+  var intervalId = null
+  var inner = function() {
+    if (++a > 10) {
+      clearInterval(intervalId)
+      inner = null // inner 식별자의 함수 참조를 끊음
+    }
+    console.log(a)
+  }
+  intervalId = setInterval(inner, 300)
+})()
 ```
 
 ```js
-(function() {
-        var count = 0;
-        var button = document.createElement('button');
-        button.innerText = 'click';
-        document.body.appendChild(button);
-        var handleClick = function() {
-            console.log(++count, 'times clicked');
-            if (count >= 10) {
-                button.removeEventListener('click', handleClick);
-                handleClick = null;
-            }
-        }
-        button.addEventListener('click', handleClick);
-    })()
-    // 10번 콘솔이 찍히고, 그 이 후부터 버튼을 눌러도 콘솔이 찍히지 않습니다.
+;(function() {
+  var count = 0
+  var button = document.createElement("button")
+  button.innerText = "click"
+  document.body.appendChild(button)
+  var handleClick = function() {
+    console.log(++count, "times clicked")
+    if (count >= 10) {
+      button.removeEventListener("click", handleClick)
+      handleClick = null
+    }
+  }
+  button.addEventListener("click", handleClick)
+})()
+// 10번 콘솔이 찍히고, 그 이 후부터 버튼을 눌러도 콘솔이 찍히지 않습니다.
 ```
 
 ## 클로저 활용 사례
@@ -155,60 +155,60 @@ outer = null;
 ### 콜백 함수 내부에서 외부 데이터를 ㅏㅅ용하고자 할 때
 
 ```js
-const fruits = ['apple', 'banana', 'coconut']
-const $ul = document.createElement('ul');
+const fruits = ["apple", "banana", "coconut"]
+const $ul = document.createElement("ul")
 
 fruits.forEach(function(fruit) {
-    const $li = document.createElement('li');
-    $li.innerText = fruit;
-    $li.addEventListener('click', function() {
-        alert('your choice is' + fruit);
-    });
-    $ul.appendChild($li);
-});
+  const $li = document.createElement("li")
+  $li.innerText = fruit
+  $li.addEventListener("click", function() {
+    alert("your choice is" + fruit)
+  })
+  $ul.appendChild($li)
+})
 
-document.body.appendChild($ul);
+document.body.appendChild($ul)
 ```
 
 여기서, alert이 계속 쓰인다면 이를 외부로 분리해서 사용 할 것입니다.
 
 ```js
-const fruits = ['apple', 'banana', 'coconut']
-const $ul = document.createElement('ul');
-const alertFruit = function(fruit,) {
-    alert('your choice is' + fruit);
-};
+const fruits = ["apple", "banana", "coconut"]
+const $ul = document.createElement("ul")
+const alertFruit = function(fruit) {
+  alert("your choice is" + fruit)
+}
 fruits.forEach(function(fruit) {
-    const $li = document.createElement('li');
-    $li.innerText = fruit;
-    $li.addEventListener('click', alertFruit.bind(this, fruit));
-    $ul.appendChild($li);
+  const $li = document.createElement("li")
+  $li.innerText = fruit
+  $li.addEventListener("click", alertFruit.bind(this, fruit))
+  $ul.appendChild($li)
 })
-document.body.appendChild($ul);
+document.body.appendChild($ul)
 ```
 
-이렇게 된다면, this를 바인딩 해서  사용 할 수도 있지만 여기서 문제점이 되는점은 eventListener에 등록한 콜백은 이벤트 객체를 사용해야 하는데, 이때 인자의 순서가 조금 달라진다는 점이 있습니다.
+이렇게 된다면, this를 바인딩 해서 사용 할 수도 있지만 여기서 문제점이 되는점은 eventListener에 등록한 콜백은 이벤트 객체를 사용해야 하는데, 이때 인자의 순서가 조금 달라진다는 점이 있습니다.
 
 `$li.addEventListener('click', alertFruit.bind(this, fruit));`에서, 현재 bind에서 fruit만 들어가지만, 실제 이벤트 리스너의 콜백에서 사용되는 `alertFruit`는 두번째 인자로 이벤트 객체를 가지고 있습니다.
 
 이를 조금 더 함수형 프로그래밍 스럽게, 고차 함수로 표현하면 다음과 같습니다.
 
 ```js
-const fruits = ['apple', 'banana', 'coconut']
-const $ul = document.createElement('ul');
+const fruits = ["apple", "banana", "coconut"]
+const $ul = document.createElement("ul")
 const alertFruit = function(fruit) {
-    return function(e) {
-        console.log(e)
-        alert('your choice is' + fruit);
-    }
-};
+  return function(e) {
+    console.log(e)
+    alert("your choice is" + fruit)
+  }
+}
 fruits.forEach(function(fruit) {
-    const $li = document.createElement('li');
-    $li.innerText = fruit;
-    $li.addEventListener('click', alertFruit(fruit));
-    $ul.appendChild($li);
+  const $li = document.createElement("li")
+  $li.innerText = fruit
+  $li.addEventListener("click", alertFruit(fruit))
+  $ul.appendChild($li)
 })
-document.body.appendChild($ul);
+document.body.appendChild($ul)
 ```
 
 이렇게 하면, console에는 이벤트 객체가 찍히고, alert에는 원하는 텍스트가 나타나게 됩니다.

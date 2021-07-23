@@ -16,15 +16,15 @@ Vue component를 만들 때 문제점들과 한계가 있었기에, 이를 극�
 
 > Large components can become hard to read & maintain
 
-사뭇 당연한 이야기지만, 컴포넌트가 커질수록 컴포넌트에 들어가는 코드의 양이 많아지기 때문에 가독성이 떨어집니다. 이는 유지하기 어려워진다는 결과를 야기하게 됩니다.  
+사뭇 당연한 이야기지만, 컴포넌트가 커질수록 컴포넌트에 들어가는 코드의 양이 많아지기 때문에 가독성이 떨어집니다. 이는 유지하기 어려워진다는 결과를 야기하게 됩니다.
 
-Vue component 내부에는 `props`, `data`, `methods`, `computed`, `lifeCycleMethods` 등 다양한 범위에서 각각의 역할을 수행하는 속성들이 있습니다.  
+Vue component 내부에는 `props`, `data`, `methods`, `computed`, `lifeCycleMethods` 등 다양한 범위에서 각각의 역할을 수행하는 속성들이 있습니다.
 
-Vue2를 써보시면 알겠지만, 위의 값과 함수들을 복합적으로 사용하다보면 필연적으로 다양한 속성들을 사용하게 되는데, 이를 확인하기 위해 스크롤의 이동이 빈번히 발생하게 됩니다.  
+Vue2를 써보시면 알겠지만, 위의 값과 함수들을 복합적으로 사용하다보면 필연적으로 다양한 속성들을 사용하게 되는데, 이를 확인하기 위해 스크롤의 이동이 빈번히 발생하게 됩니다.
 
 어떤 값 또는 메소드를 정의 또는 사용하기 위한 코드를 작성할 때 관련된 값들이 일관되며 근처에 있을수록 코드의 가독성이 좋아집니다.
 
-그러나  Vue2의 특성상 컴포넌트가 커질수록 각 속성에 대한 코드의 양이 증가하게 되고, 개발자는 그 특정 속성의 값을 찾기 위해 이리저리 찾아 다니게 되며 이는 결국 유지보수가 어려워진다는 결과를 초래합니다.
+그러나 Vue2의 특성상 컴포넌트가 커질수록 각 속성에 대한 코드의 양이 증가하게 되고, 개발자는 그 특정 속성의 값을 찾기 위해 이리저리 찾아 다니게 되며 이는 결국 유지보수가 어려워진다는 결과를 초래합니다.
 
 그렇기에, Vue3에서는 component의 가독성과 유지보수를 더 좋게 하기 위해서 CompositionAPI를 만들었습니다.
 
@@ -36,7 +36,7 @@ Vue2에서 코드를 재사용 하기 위해 사용하는 3가지 방법이 있�
 
 #### 1) mixins
 
-`mixins`는 Vue component의 속성들 중, 공통된 속성들을 묶어서 mixin을 만들고, 이를 `mixins`에 배열의 아이템으로 넣어서 사용합니다.  
+`mixins`는 Vue component의 속성들 중, 공통된 속성들을 묶어서 mixin을 만들고, 이를 `mixins`에 배열의 아이템으로 넣어서 사용합니다.
 
 이 경우에는
 
@@ -78,11 +78,11 @@ export default {
 
 이 방법의 경우
 
-* 쉽게 재사용 가능하며
-* 관계가 mixin보다 더 명확해 지기는 합니다
-* namespacing 컨벤션이 엄격해지며
-* 이 mixin이 어떤 값을 가지고 있는지 확인하기 위해 다시 Mixin을 뒤적여야 합니다.
-* mixin factory의 경우 동적으로 생성되지 않습니다.
+- 쉽게 재사용 가능하며
+- 관계가 mixin보다 더 명확해 지기는 합니다
+- namespacing 컨벤션이 엄격해지며
+- 이 mixin이 어떤 값을 가지고 있는지 확인하기 위해 다시 Mixin을 뒤적여야 합니다.
+- mixin factory의 경우 동적으로 생성되지 않습니다.
 
 #### 3) scoped slot
 
@@ -134,17 +134,17 @@ export default {
 </script>
 ```
 
-* 믹스인의 문제점들을 해결할 수 있습니다.
-* indent를 증가 시킵니다 => 가독성을 감소시킵니다.
-* 프로퍼티 값들을 외부에 노출함으로 유연성이 감소됩니다.
-* 하나의 컴포넌트 대신 3개의 컴포넌트를 가짐으로써 효율이 떨어집니다.
+- 믹스인의 문제점들을 해결할 수 있습니다.
+- indent를 증가 시킵니다 => 가독성을 감소시킵니다.
+- 프로퍼티 값들을 외부에 노출함으로 유연성이 감소됩니다.
+- 하나의 컴포넌트 대신 3개의 컴포넌트를 가짐으로써 효율이 떨어집니다.
 
 이런 문제점들을 해결하기 위해, Vue3에서는 4가지 함수를 제공하여, 이를 활용하여
 
-* 더 적은 코드로
-* JS 친화적인 함수로 작성하며
-* 위의 3가지 방법보다 더 유연하게 재사용 코드를 작성할 수 있으며
-* 자동완성등 tool 친화적입니다.
+- 더 적은 코드로
+- JS 친화적인 함수로 작성하며
+- 위의 3가지 방법보다 더 유연하게 재사용 코드를 작성할 수 있으며
+- 자동완성등 tool 친화적입니다.
 
 ### 3. 제한된 Typescript 지원
 
@@ -154,9 +154,9 @@ Vue2에서도 typescript를 사용할 수 있었으나, 최적화 되지 않았�
 
 Composition API는 Vue2의 문제점을 해결하기 위해 등장했습니다. 기존의 Vue2의 문법을 그대로 사용할 수 있으며, Composition API의 경우 반드시 필요한 것은 아닙니다. 위에서 언급했듯이, Composition API를 사용해야 하는 이유는
 
-* Typescript를 지원하기 위해
-* 컴포넌트가 너무 커서, feature별로 조직화 될 필요가 있을 때,
-* 컴포넌트간 재사용되는 코드가 있을 때
+- Typescript를 지원하기 위해
+- 컴포넌트가 너무 커서, feature별로 조직화 될 필요가 있을 때,
+- 컴포넌트간 재사용되는 코드가 있을 때
 
 입니다.
 
@@ -168,23 +168,21 @@ Composition API는 Vue2의 문제점을 해결하기 위해 등장했습니다. 
 
 ```js
 export default {
-    setup() {
-
-    }
+  setup() {},
 }
 ```
 
-* optional한 함수입니다. Vue2에서 사용되는 `data`, `computed`, `watch` 등도 계속 사용 할 수 있습니다.
-* composition API를 사용할 때 시작점이 되는 함수입니다.
-* Components, Props, Data, Methods, Computed Props, Lifecycle methods 이전에 실행됩니다.
-* this에 접근 할 수 없습니다.
-* 첫번째 인자인 `props`는 reactive 하며, watched 됩니다.
-* 두번째 인자인 `context`는 유용한 데이터들의 집합이며, 다음과 같이 데이터에 접근 할 수 있습니다.
-  * context.attrs
-  * context.slots
-  * context.parent
-  * context.root
-  * context.emit
+- optional한 함수입니다. Vue2에서 사용되는 `data`, `computed`, `watch` 등도 계속 사용 할 수 있습니다.
+- composition API를 사용할 때 시작점이 되는 함수입니다.
+- Components, Props, Data, Methods, Computed Props, Lifecycle methods 이전에 실행됩니다.
+- this에 접근 할 수 없습니다.
+- 첫번째 인자인 `props`는 reactive 하며, watched 됩니다.
+- 두번째 인자인 `context`는 유용한 데이터들의 집합이며, 다음과 같이 데이터에 접근 할 수 있습니다.
+  - context.attrs
+  - context.slots
+  - context.parent
+  - context.root
+  - context.emit
 
 이 `setup` 함수 내부에 reactive reference를 적용할 수 있습니다.
 
@@ -210,10 +208,10 @@ export default {
 
 > Composition API를 사용하면, component와 연관되지 않는 reactive object를 선언 할 수 있습니다.
 
-`setup`에서 return 한 data들은 template에서 접근 할 수 있습니다. 이렇게 setup을 사용한 방법은 더 장황해 보입니다. 하지만 setup을 활용하여  
+`setup`에서 return 한 data들은 template에서 접근 할 수 있습니다. 이렇게 setup을 사용한 방법은 더 장황해 보입니다. 하지만 setup을 활용하여
 
-* 어떤 것들이 드러나야 하는지 통제할 수 있으며
-* property들이 어디에 있는지 더 쉽게 찾을 수 있습니다.
+- 어떤 것들이 드러나야 하는지 통제할 수 있으며
+- property들이 어디에 있는지 더 쉽게 찾을 수 있습니다.
 
 이런 setup의 장점으로 유지보수와 가독성을 높일 수 있습니다.
 
@@ -246,7 +244,7 @@ export default {
 </script>
 ```
 
-위에서 보듯, reactive reference를 변경하는 method의 경우, 일반적인 javascript 함수로 정의하여 이를 반환하여 `template`에서 사용 할 수 있습니다.  
+위에서 보듯, reactive reference를 변경하는 method의 경우, 일반적인 javascript 함수로 정의하여 이를 반환하여 `template`에서 사용 할 수 있습니다.
 
 여기서 주의해야 할 점은, `reactive reference`의 경우 object로 wrapping 되기 때문에, object를 증가할 수 없으며, `object.value`로 접근하여 사용해야 합니다.
 
@@ -353,26 +351,26 @@ export default {
 이를 해결하기 위해, destructuring을 할 수 있으면 좋을텐데요,
 
 ```js
-return { ...event, increaseCapacity };
+return { ...event, increaseCapacity }
 ```
 
 에서 `...event`의 경우 destructuring을 사용해서 reactivity를 깨게 됩닏다. 이를 방지하기 위해, 새로운 함수인 `toRef` 또는 `toRefs`를 사용할 수 있습니다.
 
 ```js
-return { ...toRefs(event), increaseCapacity };
+return { ...toRefs(event), increaseCapacity }
 ```
 
 `toRef` 는 `reactive` 객체의 하나의 property를 `ref` 를 활용하여 wrapping 하는 함수입니다.
 
 ```js
 const state = reactive({
-    foo:1,
-    bar:2
+  foo: 1,
+  bar: 2,
 })
 
-const fooRef = toReef(state, 'foo')
+const fooRef = toReef(state, "foo")
 
-fooRef.value++;
+fooRef.value++
 console.log(state.foo) // 2
 
 state.foo++
@@ -383,8 +381,8 @@ consolee.log(fooRef.value) // 3
 
 ```js
 const state = reactive({
-    foo: 1,
-    bar: 2
+  foo: 1,
+  bar: 2,
 })
 
 const stateAsRefs = toRefs(state)
@@ -464,9 +462,9 @@ export default {
 
 위처럼 import 해서 `setup` 에서 return에 사용할 수 있습니다.
 
-그러나 이처럼 사용할 경우에, 기존 `mixins`와 차이가 없습니다. mixin의 경우 어떤 데이터가 사용되는지 확인하려면 해당되는 mixin 파일에서 값을 확인해야 합니다.  
+그러나 이처럼 사용할 경우에, 기존 `mixins`와 차이가 없습니다. mixin의 경우 어떤 데이터가 사용되는지 확인하려면 해당되는 mixin 파일에서 값을 확인해야 합니다.
 
- 이를 극복하기 위해, Vue3는 `destructuring`을 활용하여 해결책을 만들었습니다.
+이를 극복하기 위해, Vue3는 `destructuring`을 활용하여 해결책을 만들었습니다.
 
 ```js
 <template>
@@ -492,32 +490,32 @@ export default {
 
 **new methods**
 
-* **onRenderTracked**
-  
+- **onRenderTracked**
+
   reactivity dependency가 render 함수에 처음 접근했을 때 호출되는 라이프 사이클 메서드입니다. reactive dependency 는 추적 가능해지며, 디버깅 할 때 유용하게 사용 할 수 있습니다.
 
-* **onRenderTriggered** 
+- **onRenderTriggered**
 
   새로운 렌더가 트리거 될때, 어떤 dependency가 컴포넌트를 리렌더링 하는지 검사할 수 있게 하는 라이프 사이클 메서드 입니다.
 
 **naming change**
 
-* beforeDestroy() => beforeUnmount()
-* destroyed() => unmounted()
+- beforeDestroy() => beforeUnmount()
+- destroyed() => unmounted()
 
 **lifecycle methods in setup**
 
 접두사 on을 붙여서 사용
 
-* onBeforeMount
-* onMounted
-* onBeforeUpdate
-* onUpdated
-* onBeforeUnmount
-* onUnmounted
-* onActivated
-* onDeactivated
-* onErrorCaptured
+- onBeforeMount
+- onMounted
+- onBeforeUpdate
+- onUpdated
+- onBeforeUnmount
+- onUnmounted
+- onActivated
+- onDeactivated
+- onErrorCaptured
 
 > beforeCreate, created는 사용되지 않는데, beforeCreate이 setup보다 먼저 실행되기 때문입니다. 그리고, setup 실행 이후 created가 실행 됩니다.
 
@@ -528,7 +526,7 @@ export default {
 ```js
 <template>
   <div>
-    Search for <input v-model="searchInput" /> 
+    Search for <input v-model="searchInput" />
     <div>
       <p>Number of events: {{ results }}</p>
     </div>
@@ -542,7 +540,7 @@ export default {
   setup() {
     const searchInput = ref("");
     const results = ref(0);
-    
+
     results.value = eventApi.getEventCount(searchInput.value);
 
     return { searchInput, results };
@@ -594,6 +592,6 @@ watch(searchInput, (newVal, oldVal) => {
 
 ```js
 watch([firstName, lastName], ([newFirst, newLast], [oldFirst, oldLast]) => {
-  ...   
+  ...
 });
 ```

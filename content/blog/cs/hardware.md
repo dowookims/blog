@@ -14,7 +14,7 @@ thumbnail: ./imgs/cs50-hardware.png
 
 ### 1. 하드웨어에서의 데이터 흐름
 
-컴퓨터의 하드웨어는 크게 *중앙처리장치*, *기억장치*, *입출력장치* 로 구성됩니다.
+컴퓨터의 하드웨어는 크게 _중앙처리장치_, _기억장치_, _입출력장치_ 로 구성됩니다.
 
 #### 1) 중앙처리장치(Central Processing Unit, CPU)
 
@@ -22,7 +22,7 @@ thumbnail: ./imgs/cs50-hardware.png
 
 중앙처리장치는 다양한 입력 장치로부터 자료를 받아서 처리한 후 그 결과를 출력장치로 보내는 일련의 과정을 제어하고 저장하는 일을 수행합니다.
 
-이 때, 프로그램 명령어를 실행하는 일을 담당하는 중앙처리장치는 *제어장치*, *연산장치*, *레지스터* 이 세 부분으로 구성됩니다.
+이 때, 프로그램 명령어를 실행하는 일을 담당하는 중앙처리장치는 _제어장치_, _연산장치_, _레지스터_ 이 세 부분으로 구성됩니다.
 
 ##### [1] 제어 장치(Control Unit, CU)
 
@@ -30,13 +30,13 @@ thumbnail: ./imgs/cs50-hardware.png
 
 제어장치의 내부 구성 장치
 
-* 프로그램 카운터 (Program Counter) : 다음에 수행할 명령어의 번지를 기억하는 레지스터
-* 명령 해독기 (Instruction Decoder) : 수행해야 할 명령어를 해석하여 부호기로 전달하는 회로
-* 부호기 (Encoder) : 명령 해독기에서 전송된 명령어를 제어 필요한 신호로 변환하는 회로
-* 명령 레지스터 (Instruction Register, IR) : 현재 수행 중인 명령어를 기억하는 레지스터
-* 번지 해독기 (Address Decoder) : 명령 레지스터로부터 보내온 번지(주소)를 해석하는 회로
-* 번지 레지스터 (Memory Address Register, MAR) : 주소를 기억하는 레지스터
-* 기억 레지스터 (Memory Buffer Register, MBR) : 내용(자료)를 기억하는 레지스터
+- 프로그램 카운터 (Program Counter) : 다음에 수행할 명령어의 번지를 기억하는 레지스터
+- 명령 해독기 (Instruction Decoder) : 수행해야 할 명령어를 해석하여 부호기로 전달하는 회로
+- 부호기 (Encoder) : 명령 해독기에서 전송된 명령어를 제어 필요한 신호로 변환하는 회로
+- 명령 레지스터 (Instruction Register, IR) : 현재 수행 중인 명령어를 기억하는 레지스터
+- 번지 해독기 (Address Decoder) : 명령 레지스터로부터 보내온 번지(주소)를 해석하는 회로
+- 번지 레지스터 (Memory Address Register, MAR) : 주소를 기억하는 레지스터
+- 기억 레지스터 (Memory Buffer Register, MBR) : 내용(자료)를 기억하는 레지스터
 
 ##### [2] 연산 장치(Arithmetic Logic Unit, ALU)
 
@@ -44,13 +44,13 @@ thumbnail: ./imgs/cs50-hardware.png
 
 연산장치의 내부 구성 장치
 
-* 가산기(Adder): 2진수 덧셈을 계산하는 회로
-* 보수기(Complementer) : 뺄셈을 수행하기 위해 입력된 값을 보수로 변환하는 회로
-* 누산기(Accumulator) : 중간 연산 결과를 일시적으로 기억하는 레지스터
-* 데이터 레지스터 (Data Register) : 연산한 데이터를 기억하는 레지스터
-* 프로그램 상태 워드 (Program Status Word, PSW) : 명령어 실행 중에 발생하는 CPU의 상태 정보를 저장하는 상태 레지스터 (Status Register)
-* 인덱스 레지스터 (Index Register) : 유효 번지를 상대적으로 계산할 때 사용하는 레지스터
-* 베이스 레지스터 (Base Register) : 유효 번지를 절대적으로 계산할 때 사용하는 레지스터
+- 가산기(Adder): 2진수 덧셈을 계산하는 회로
+- 보수기(Complementer) : 뺄셈을 수행하기 위해 입력된 값을 보수로 변환하는 회로
+- 누산기(Accumulator) : 중간 연산 결과를 일시적으로 기억하는 레지스터
+- 데이터 레지스터 (Data Register) : 연산한 데이터를 기억하는 레지스터
+- 프로그램 상태 워드 (Program Status Word, PSW) : 명령어 실행 중에 발생하는 CPU의 상태 정보를 저장하는 상태 레지스터 (Status Register)
+- 인덱스 레지스터 (Index Register) : 유효 번지를 상대적으로 계산할 때 사용하는 레지스터
+- 베이스 레지스터 (Base Register) : 유효 번지를 절대적으로 계산할 때 사용하는 레지스터
 
 ##### [3] 레지스터(Register)
 
@@ -64,7 +64,7 @@ thumbnail: ./imgs/cs50-hardware.png
 
 입력장치와 출력장치를 의미합니다. 대표적으로 마우스, 키보드, 모니터, 스캐너등이 있습니다. 사용자가 입력한 자료를 컴퓨터가 이해할 수 있는 형태로 변환하는 장치가 입력장치입니다.
 
-*참고 자료*
+_참고 자료_
 
 [edwith-cs50](https://www.edwith.org/cs50/lecture/22799/)  
 [양햄찌가 만드는 세상](https://jhnyang.tistory.com/166)

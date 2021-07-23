@@ -6,11 +6,11 @@ description: "SOLID에 대해 알아보자"
 thumbnail: ./imgs/datatype.png
 ---
 
-* `S`ingle Responsibility Principle (단일 책임 원칙)
-* `O`pen/Closed Principle (개방 / 폐쇄 원칙)
-* `L`iskov Substitution Principle (리스코프 치환 원칙)
-* `I`nterface Segregation Principle (인터페이스 분리 원칙)
-* `D`ependency Inversion Principle (의존성 역전 원칙)
+- `S`ingle Responsibility Principle (단일 책임 원칙)
+- `O`pen/Closed Principle (개방 / 폐쇄 원칙)
+- `L`iskov Substitution Principle (리스코프 치환 원칙)
+- `I`nterface Segregation Principle (인터페이스 분리 원칙)
+- `D`ependency Inversion Principle (의존성 역전 원칙)
 
 ## 단일 책임 원칙
 

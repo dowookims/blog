@@ -6,7 +6,7 @@ description: "THIS is this that is that"
 thumbnail: ./imgs/this.png
 ---
 
-자바스크립트가 아닌 다른 대부분의 객체지향 언어에서 this는 클래스로 생성한 인스턴스 객체를 의미합니다. 그러나 자바스크립트에서 this는 어디서든 사용할 수 있습니다.  
+자바스크립트가 아닌 다른 대부분의 객체지향 언어에서 this는 클래스로 생성한 인스턴스 객체를 의미합니다. 그러나 자바스크립트에서 this는 어디서든 사용할 수 있습니다.
 
 자바스크립트에서 this는 상황에 따라 바라보는 대상이 달라집니다. 함수와 객체(메서드)의 구분이 느슨한 자바스크립트에서 `this`는 실질적으로 함수와 메서드를 구분하는 거의 유일한 기능이며, this의 동작 방식을 이해하지 않고 작업을 할 경우 참조 되는 `this`가 의도한 `this`와 달라 많이 헤메일 수 있습니다.
 
@@ -14,9 +14,9 @@ thumbnail: ./imgs/this.png
 
 자바스크립트에서 this는 기본적으로 실행 컨텍스트가 생성될 때 함께 결정됩니다. Context가 생성 될때 같이 생성되는 것들이
 
-* VariableEnvironment
-* LexicalEnvironment
-* ThisBinding
+- VariableEnvironment
+- LexicalEnvironment
+- ThisBinding
 
 에서 this도 Context가 생성될 때 결정이 됩니다. 실행 컨텍스트는 함수를 호출할 때 생성되므로, 이는 즉 this는 `함수를 호출할 때 결정된다`라고 말할 수 있습니다. 그렇기에 함수를 <u>어떤 방식</u>으로 호출하는지에 따라 값이 달라지기에, 개발할 때 함수의 호출 시점을 유심히 봐야 합니다.
 
@@ -27,13 +27,13 @@ thumbnail: ./imgs/this.png
 전역변수를 선언하면 JS 엔진은 전역 변수를 전역 객체의 프로퍼티로도 할당합니다.
 
 ```js
-var a = 5;
-let b = 3;
-const c = 1;
+var a = 5
+let b = 3
+const c = 1
 
-console.log(window.a); // 5
-console.log(window.b); // undefined
-console.log(window.c); // undefined
+console.log(window.a) // 5
+console.log(window.b) // undefined
+console.log(window.c) // undefined
 ```
 
 저는 이제 `var` 를 아예 안쓰고 `let`과 `const`로 작업을 진행하다 보니 전역변수로 설정 되지는 않는데 왜 `let`과 `const`는 전역 변수로 등록되지 않을까요?
@@ -53,19 +53,19 @@ console.log(window.c); // undefined
 자바스크립트에서 메서드를 `객체의 프로퍼티에 할당된 함수`라고 이해할 수도 있는데 자바스크립트에서는 객체의 메서드로 호출할 경우에만 메서드로 동작하고, 그렇지 않으면 함수로 동작하게 됩니다.
 
 ```js
-let letA = 52;
-var varA = 23;
-const conA = 57;
+let letA = 52
+var varA = 23
+const conA = 57
 
 var func1 = function() {
-    console.log(this.letA, this.varA, this.conA);
+  console.log(this.letA, this.varA, this.conA)
 }
 
 var obj = {
-    letA: 12,
-    varA: 13,
-    conA: 15,
-    met: func1
+  letA: 12,
+  varA: 13,
+  conA: 15,
+  met: func1,
 }
 
 func1()
@@ -92,20 +92,20 @@ obj.met()
 
 ```js
 var obj1 = {
-    outer: function() {
-        console.log(this);
-        var innerFunc = function() {
-            console.log(this);
-        }
-        innerFunc();
-
-        var obj2 = {
-            innerMethod: innerFunc
-        };
-        obj2.innerMethod();
+  outer: function() {
+    console.log(this)
+    var innerFunc = function() {
+      console.log(this)
     }
-};
-obj1.outer();
+    innerFunc()
+
+    var obj2 = {
+      innerMethod: innerFunc,
+    }
+    obj2.innerMethod()
+  },
+}
+obj1.outer()
 // obj1, Window, obj2.innerMethod 순으로 this가 참조됩니다.
 ```
 
@@ -115,21 +115,21 @@ obj1.outer();
 
 ```js
 var obj1 = {
-    outer: function() {
-        console.log(this);
-        var innerFunc = function() {
-            console.log(this);
-        }
-        innerFunc();
-
-        var self = this; // 객체의 this의 참조값을 변수로 저장하여, 이 변수를 건내주는 것 입니다.
-        var innerFunc2 = function() {
-            console.log(self);
-        }
-        innerFunc2();
+  outer: function() {
+    console.log(this)
+    var innerFunc = function() {
+      console.log(this)
     }
-};
-obj1.outer();
+    innerFunc()
+
+    var self = this // 객체의 this의 참조값을 변수로 저장하여, 이 변수를 건내주는 것 입니다.
+    var innerFunc2 = function() {
+      console.log(self)
+    }
+    innerFunc2()
+  },
+}
+obj1.outer()
 ```
 
 이렇게, 상위 스코프에 있는 this를 변수에 저장해서, 이 변수를 사용하는 방법으로 해결했습니다.
@@ -138,12 +138,12 @@ ES6에서는 더 깔끔하게 이 문제를 해결했는데요, 저도 주로 �
 
 ```js
 const obj = {
-    outer: function() {
-        console.log(this);
-        const innerFunc = () => {
-            console.log(this);
-        }
+  outer: function() {
+    console.log(this)
+    const innerFunc = () => {
+      console.log(this)
     }
+  },
 }
 ```
 
@@ -154,9 +154,15 @@ const obj = {
 콜백함수에서의 `this`는 명확히 `this`는 이거다! 라고 지정할 수 없습니다. 콜백함수의 제어권을 가지는 함수 또는 메서드가 콜백 함수에서 `this`를 무엇을 할지 결정하며, 특별히 정의하지 않은 경우 기본 함수와 마찬가지로 전역 객체를 가리키게 됩니다.
 
 ```js
-setTimeout(function() { console.log(this)}, 300); // window
-[1,2,3,4,5].forEach(function(x) { console.log(this)}) // window
-document.body.querySelector('div').addEventListenr('click', function(e) { console.log(this)}) // div 엘리먼트
+setTimeout(function() {
+  console.log(this)
+}, 300) // window
+;[1, 2, 3, 4, 5].forEach(function(x) {
+  console.log(this)
+}) // window
+document.body.querySelector("div").addEventListenr("click", function(e) {
+  console.log(this)
+}) // div 엘리먼트
 ```
 
 위에서 `addEventListener` 의 경우 지정한 `HTML element`에 해당 이벤트('click')이 발생할 때마다 콜백 함수의 첫번째 인자로 이벤트 정보를 담아 함수를 실행하며, this를 해당 이벤트를 일으킨 엘리먼트에 binding 합니다.
@@ -172,11 +178,13 @@ document.body.querySelector('div').addEventListenr('click', function(e) { consol
 call 메서드는 메서드의 호출 주체인 함수를 즉시 실행되도록 하는 명령어 입니다. call의 첫 번째 인자를 `this`로 바인딩하고, 이후 인자들을 호출할 함수의 매개변수로 합니다.
 
 ```js
-var nodeList = document.querySelectorAll('div') // div 노드의 유사 배열이 저장이 됩니다.
+var nodeList = document.querySelectorAll("div") // div 노드의 유사 배열이 저장이 됩니다.
 // 유사 배열은 배열 메서드를 사용할 수 없지만, length값과 정수의 index, iterable이 가능합니다.
 // 여기서 배열의 메서드를 사용하기 위해 다음과 같이 사용합니다.
 
-Array.prototype.forEach.call(nodeList, function(v){ console.log(v)})
+Array.prototype.forEach.call(nodeList, function(v) {
+  console.log(v)
+})
 ```
 
 ### Function.prototype.apply(thisArgs, [...])
@@ -189,13 +197,13 @@ apply 메서드는 call 메서드와 기능적으로 동일하나, 두 번째 �
 
 ```js
 function Person(name, gender) {
-    this.name = name;
-    this.gender = gender;
+  this.name = name
+  this.gender = gender
 }
 
 function Student(name, gender, age) {
-    Person.call(this, name, gender);
-    this.age = age;
+  Person.call(this, name, gender)
+  this.age = age
 }
 ```
 

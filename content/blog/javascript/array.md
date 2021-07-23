@@ -28,13 +28,13 @@ Array의 내장 메서드 (join, slice, indexOf 등은) 호출했을 때 배열�
 이 `length` 를 이용하여 아래와 같이 Array를 조작 할 수 있는데,
 
 ```js
-const arr = [];
-arr.length = 10;
-console.log(arr); // [empty x 10];
-arr[15] = 'a';
-console.log(arr); // [empty x 15, 'a']
-arr.length = 8;
-console.log(arr); // [empty x 8]
+const arr = []
+arr.length = 10
+console.log(arr) // [empty x 10];
+arr[15] = "a"
+console.log(arr) // [empty x 15, 'a']
+arr.length = 8
+console.log(arr) // [empty x 8]
 ```
 
 이처럼 Array를 length property로 조작 할 수도 있습니다.
@@ -52,54 +52,62 @@ console.log(arr); // [empty x 8]
 이 메서드는 유사 배열 객체나 반복 가능한 객체를 얕게 복사해 새로운 Array 객체를 만듭니다.
 
 ```js
-Array.from('douglas');
+Array.from("douglas")
 // ["d", "o", "u", "g", "l", "a", "s"]
 
-const s = new Set(['dowoo', 'kim']);
+const s = new Set(["dowoo", "kim"])
 Array.from(s)
 // ['dowoo', 'kim']
 
-const m = new Map([[1, 2], [2, 4], [4, 8]]);
-Array.from(m);
+const m = new Map([
+  [1, 2],
+  [2, 4],
+  [4, 8],
+])
+Array.from(m)
 // [[1, 2], [2, 4], [4, 8]]
 
-const mapper = new Map([['1', 'a'], ['2', 'b']]);
-Array.from(mapper.values());
+const mapper = new Map([
+  ["1", "a"],
+  ["2", "b"],
+])
+Array.from(mapper.values())
 // ['a', 'b'];
 
-Array.from(mapper.keys());
+Array.from(mapper.keys())
 // ['1', '2'];
 
 function f() {
-  return Array.from(arguments);
+  return Array.from(arguments)
 }
 
-f(1, 2, 3);
+f(1, 2, 3)
 // [1, 2, 3]
 ```
 
 이 메서드를 활용해 시퀀스 생성기도 만들 수 있습니다.
 
 ```js
-const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+const range = (start, stop, step) =>
+  Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step)
 
 // Generate numbers range 0..4
-range(0, 4, 1);
-// [0, 1, 2, 3, 4] 
+range(0, 4, 1)
+// [0, 1, 2, 3, 4]
 
-// Generate numbers range 1..10 with step of 2 
-range(1, 10, 2); 
+// Generate numbers range 1..10 with step of 2
+range(1, 10, 2)
 // [1, 3, 5, 7, 9]
 
 // Generate the alphabet using Array.from making use of it being ordered as a sequence
-range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map(x => String.fromCharCode(x));
+range("A".charCodeAt(0), "Z".charCodeAt(0), 1).map(x => String.fromCharCode(x))
 // ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 ```
 
 `Array.from` 은 ECMA-262 표준 제6판에 추가 되었기에, 이를 지원하지 않는 브라우저`(IE) - IE11도 지원하지 않음`도 있습니다. 아래 코드를 포함하면 지원하지 않는 플랫폼에서도 `Array.from` 을사용할 수 있습니다. 아래 알고리즘은 `Object` 와 `TypeError` 가 변형되지 않고, `callback.call` 의 계산 값이 원래의 `Function.prototype.call()` 과 같은 경우 `ECMA-262 제6판` 이 명시한 것과 동일합니다.또한 반복가능자(iterable)는 완벽하게 폴리필할 수없기에 본 구현은 ECMA-262 제6판의 제네릭 반복가능자를 지원하지 않습니다.
 이 함수의 폴리필은 다음과 같습니다.
 
-```js
+````js
 // Production steps of ECMA-262, Edition 6, 22.1.2.1
 if (!Array.from) {
   Array.from = (function () {
@@ -153,7 +161,7 @@ if (!Array.from) {
       var len = toLength(items.length);
 
       // 13. If IsConstructor(C) is true, then
-      // 13. a. Let A be the result of calling the [[Construct]] internal method 
+      // 13. a. Let A be the result of calling the [[Construct]] internal method
       // of C with an argument list containing the single item len.
       // 14. a. Else, Let A be ArrayCreate(len).
       var A = isCallable(C) ? Object(new C(len)) : new Array(len);
@@ -217,7 +225,7 @@ console.timeEnd('forpush')
 // spread: 1373.498ms
 // map: 1466.990ms
 // forpush: 2653.858ms
-```
+````
 
 실험 결과, `JSON.parse()`, `JSON.stringify()` 가 가장 오래 걸렸으며, from이 가장 적게 걸렸다.
 그리고, 테스트를 돌리던 중 확인한게, map과 spread 문법을 활용한 로직의 경우 heap 메모리를 겁나 잡아먹어 에러를 내뿜는 것을 확인 할 수 있었습니다. 이에 대한 이슈를 한번 확인 해 봐야겠습니다.
@@ -234,9 +242,9 @@ Array 객체를 판별할 때, `Array.isArray()` 는 `iframe`을 통해서도 �
 
 ```js
 if (!Array.isArray) {
-    Array.isArray = function(arg) {
-        return Object.prototype.toString.call(arg) === '[object Array]';
-    };
+  Array.isArray = function(arg) {
+    return Object.prototype.toString.call(arg) === "[object Array]"
+  }
 }
 ```
 
@@ -247,9 +255,9 @@ if (!Array.isArray) {
 > return : Array
 
 ```js
-Array.of(1);         // [1]
-Array.of(1, 2, 3);   // [1, 2, 3]
-Array.of(undefined); // [undefined]
+Array.of(1) // [1]
+Array.of(1, 2, 3) // [1, 2, 3]
+Array.of(undefined) // [undefined]
 ```
 
 ##### 폴리필
@@ -257,8 +265,8 @@ Array.of(undefined); // [undefined]
 ```js
 if (!Array.of) {
   Array.of = function() {
-    return Array.prototype.slice.call(arguments);
-  };
+    return Array.prototype.slice.call(arguments)
+  }
 }
 ```
 
@@ -268,7 +276,7 @@ if (!Array.of) {
 
 `sort()` 메서드는 배열의 요소를 정렬 후, 정렬된 배열을 반환하며, 정렬은 `stable sort`가 아닐 수 있습니다.
 
-기본 정렬 순서는 문자열의 유니코드 코드 포인트를 따르며, 정렬 속도와 복잡도는  구현 방식에 따라 다를 수 있습니다.
+기본 정렬 순서는 문자열의 유니코드 코드 포인트를 따르며, 정렬 속도와 복잡도는 구현 방식에 따라 다를 수 있습니다.
 
 > 만약 const arr = [9, 80]일때 arr.sort() 를 하게 되면 반환값으로 [80, 9]를 얻게 된다
 
@@ -277,10 +285,11 @@ if (!Array.of) {
 > return : sort된 원 배열
 
 `compareFunction`이 제공되면 배열 요소는 compare 함수의 반환 값에 따라 정렬됩니다. a, b가 비교되는 두 요소라면
-* `compareFunction(a, b)` 의 return 값이 0보다 작은 경우, a를 b보다 낮은 값으로 판단되어 a가 b보다 먼저 오게 됩니다.
-* `compareFunction(a, b)` 의 return 값이 0일 경우, 서로 변경하지 않고, 모든 다른 요소에 정렬
-* `compareFunction(a, b)` 의 return 값이 0보다 큰 경우, b를 a보다 낮은 index로 정렬
-* `compareFunction(a, b)`의 요소 a와 b의 특정 쌍이 두 개의 인수로 주어질 때 항상 동일한 값을 반환해야합니다. 일치하지 않는 결과가 반환되면 정렬 순서는 정의되지 않습니다.
+
+- `compareFunction(a, b)` 의 return 값이 0보다 작은 경우, a를 b보다 낮은 값으로 판단되어 a가 b보다 먼저 오게 됩니다.
+- `compareFunction(a, b)` 의 return 값이 0일 경우, 서로 변경하지 않고, 모든 다른 요소에 정렬
+- `compareFunction(a, b)` 의 return 값이 0보다 큰 경우, b를 a보다 낮은 index로 정렬
+- `compareFunction(a, b)`의 요소 a와 b의 특정 쌍이 두 개의 인수로 주어질 때 항상 동일한 값을 반환해야합니다. 일치하지 않는 결과가 반환되면 정렬 순서는 정의되지 않습니다.
 
 > 비ASCII 문자일 경우, String.localeCompare를 활용합니다.
 

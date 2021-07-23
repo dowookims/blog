@@ -10,7 +10,7 @@ thumbnail: ./imgs/html.png
 
 ![accordian-ui](https://i.ytimg.com/vi/_wBVNaREgSo/maxresdefault.jpg)
 
-아코디언 UI라고 하면 생소할 수 있으나, 보면 "아! 이거!" 라고 말할 수 있는 UI 컴포넌트입니다. 이걸 만들기 위해서 `html, css, js` 를 활용하여 만들었는데요, 이를 지원하는 `HTML` 태그가 있다고 합니다. 
+아코디언 UI라고 하면 생소할 수 있으나, 보면 "아! 이거!" 라고 말할 수 있는 UI 컴포넌트입니다. 이걸 만들기 위해서 `html, css, js` 를 활용하여 만들었는데요, 이를 지원하는 `HTML` 태그가 있다고 합니다.
 
 그 태그는 바로, `details` 태그와 `summary` 태그입니다.
 
@@ -28,10 +28,10 @@ HTML 태그답게 정말 간단하게 사용 할 수 있습니다.
 ```html
 <!-- HTML-->
 <details>
-    <summary>
-        Clike!
-    </summary>
-    <p>짜잔, 아코디언 UI 완성 !</p>
+  <summary>
+    Clike!
+  </summary>
+  <p>짜잔, 아코디언 UI 완성 !</p>
 </details>
 ```
 
@@ -70,12 +70,10 @@ details 요소의 표준화 과정 중 추가된 실험적 구현이기 때문�
 `<details></details>`는 상태가 열기, 닫기로 바뀔 때 `toggle` 이벤트가 발생하며, 이를 활용하여 작업을 진행 할 수도 있습니다.
 
 ```js
-details.addEventListener('toggle', e => {
-    if (details.open) {
-
-    } else {
-
-    }
+details.addEventListener("toggle", e => {
+  if (details.open) {
+  } else {
+  }
 })
 ```
 
@@ -98,10 +96,11 @@ details.addEventListener('toggle', e => {
 여기서 맥북 유저라면 `[Control] + [Option] + k`를, 그외 os를 사용(windows, linux) 하시면 `[ALT] + K` 를 눌러보세요.
 
 ```html
-<a 
-    href="https://www.w3schools.com/tags/att_global_accesskey.asp"
-    accesskey="k"
-    target="_blank">HTML accesskey attribute
+<a
+  href="https://www.w3schools.com/tags/att_global_accesskey.asp"
+  accesskey="k"
+  target="_blank"
+  >HTML accesskey attribute
 </a>
 ```
 

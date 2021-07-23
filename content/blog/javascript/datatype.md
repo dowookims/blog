@@ -9,35 +9,36 @@ thumbnail: ./imgs/datatype.png
 # 자바스크립트의 데이터 타입
 
 자바스크립트의 데이터 타입에는 크게 두가지가 있습니다.
-* 기본형(원시형, primitive)
-  * Number
-  * String
-  * Boolean
-  * null
-  * undefine
-  * Symbol
-* 참조형(reference)
-  * Object
-  * Array
-  * Function
-  * Map, WeakMap
-  * Set, WeakSet
-  * RegExp
-  * ...etc
+
+- 기본형(원시형, primitive)
+  - Number
+  - String
+  - Boolean
+  - null
+  - undefine
+  - Symbol
+- 참조형(reference)
+  - Object
+  - Array
+  - Function
+  - Map, WeakMap
+  - Set, WeakSet
+  - RegExp
+  - ...etc
 
 이 두 자료형은 할당이나 연산시 모두 복제를 하긴 합니다. 그러나 기본형의 경우 값의 주소를 복제하는 반면에, 참조형은 값이 담긴 주소값들로 이루어진 주소값을 복제한다는 점이 다릅니다.
 
 ```js
-var a; // 변수 선언
-a = 'abc'; // 변수 선언
+var a // 변수 선언
+a = "abc" // 변수 선언
 
-var a = 'abc'; // 변수 선언과 할당을 동시에 진행
+var a = "abc" // 변수 선언과 할당을 동시에 진행
 ```
 
 위의 과정의 경우  
 `1) 메모리에 비어있는 공간을 확보하고`  
 `2) a라는 이름을 가진 주소를 검색해`  
-`3) 그곳에 문자열 'abc'`를 할당하는 것이 아니라,  
+`3) 그곳에 문자열 'abc'`를 할당하는 것이 아니라,
 
 `1')데이터를 저장하기 위한 별도의 메모리 공간을 다시 확보해서`  
 `2') 문자열 'abc'를 저장하고`,  
@@ -46,15 +47,16 @@ var a = 'abc'; // 변수 선언과 할당을 동시에 진행
 자바스크립트의 정적 타입 언어가 아니라 동적 타입의 언어이고, 변수의 타입을 지정하며 메모리를 할당하지 않습니다. 또한, 값들의 주소를 이미 가지고 있습니다. 그렇기에 변수 영역에 값을 직접 대입하지 않고, 한 단계를 더 거치는 방식을 택했습니다. 이를 통해 데이터 변환을 자유롭게 하며 동시에 메모리를 더 효율적으로 관리할 수 있습니다.
 
 예를들어,
-* String의 경우, 기존에 있는 String에 마지막에 새로운 데이터가 추가 될 경우에
-  * 기존 데이터가 저장된 곳에 새로운 데이터를 저장하지 않고
-  * 새로운 데이터를 만들어 메모리에 저장해 놓고
-  * 그 데이터의 주소값을 변수에 저장합니다
-* Number의 경우, 자바스크립트는 Number가 8바이트 이기에, 많은 변수(n)에 상수 c를 저장하게 된다고 했을 때
-  * 각 변수를 별개로 인식하면, 500개의 변수 공간을 확보해야 하고, 각 변수 공간은 8byte가 됩니다.
-  * 이때 공간복잡도는 8byte * n이 됩니다.
-  * 그러나 5를 별도의 공간에 두고, 주소 공간의 크기를 2byte로 제한한다고 하면
-  * n * 2byte + 8byte 가 되서 중복된 데이터 처리 효율이 더 좋습니다.
+
+- String의 경우, 기존에 있는 String에 마지막에 새로운 데이터가 추가 될 경우에
+  - 기존 데이터가 저장된 곳에 새로운 데이터를 저장하지 않고
+  - 새로운 데이터를 만들어 메모리에 저장해 놓고
+  - 그 데이터의 주소값을 변수에 저장합니다
+- Number의 경우, 자바스크립트는 Number가 8바이트 이기에, 많은 변수(n)에 상수 c를 저장하게 된다고 했을 때
+  - 각 변수를 별개로 인식하면, 500개의 변수 공간을 확보해야 하고, 각 변수 공간은 8byte가 됩니다.
+  - 이때 공간복잡도는 8byte \* n이 됩니다.
+  - 그러나 5를 별도의 공간에 두고, 주소 공간의 크기를 2byte로 제한한다고 하면
+  - n \* 2byte + 8byte 가 되서 중복된 데이터 처리 효율이 더 좋습니다.
 
 ## 변수와 상수
 
@@ -67,13 +69,13 @@ var a = 'abc'; // 변수 선언과 할당을 동시에 진행
 
 ```js
 // 1
-var a = 'abc';
-a = a + 'def';
+var a = "abc"
+a = a + "def"
 
 // 2
-var b = 5;
-var c = 5;
-b = 7;
+var b = 5
+var c = 5
+b = 7
 ```
 
 위의 주석 `//1` 에서 변수 a에 문자열 'abc'를 할당했다가 뒤에 'def'를 추가하면, 기존 'abc'가 'abcdef'가 되는게 아니라 'abcdef'를 만들어, 이 주소를 a에 저장합니다. 'abc'와 'abcdef'는 완전히 다른 언어입니다.
@@ -86,7 +88,7 @@ b = 7;
 
 ### 가변값
 
-기본형 데이터는 모두 불변값이고 참조형 데이터는 모두 가변값일거 같은 느낌이 듭니다. 기본적으로 가변값인 경우가 많으나 설정에 따라 변경 불가능한 경우도 있고(Object.defineProperty, Object.freeze),  아예 불변값으로 활용하는 방안도 있습니다.
+기본형 데이터는 모두 불변값이고 참조형 데이터는 모두 가변값일거 같은 느낌이 듭니다. 기본적으로 가변값인 경우가 많으나 설정에 따라 변경 불가능한 경우도 있고(Object.defineProperty, Object.freeze), 아예 불변값으로 활용하는 방안도 있습니다.
 
 [mozila -GC](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)  
 [Javascript info -GC](https://ko.javascript.info/garbage-collection)
@@ -96,11 +98,11 @@ b = 7;
 변수를 복사할 때의 변화
 
 ```js
-var a = 10;
-b = a;
+var a = 10
+b = a
 
-var obj1 = { c: 10, d: 'ddd' };
-var obj2 = obj1;
+var obj1 = { c: 10, d: "ddd" }
+var obj2 = obj1
 ```
 
 1. 변수 영역 공간에 공간을 확보하고, 식별자를 a로 지정합니다.
@@ -111,7 +113,7 @@ var obj2 = obj1;
 6. obj1.c의 변수 영역 공간에 c와 d의 식별자를 입력하고, c와 d에 대입할 값을 데이터 영역에서 검색하고 없으면 빈 공간에 새로 만들어 연결합니다.
 7. obj2의 경우, 변수 영역 공간을 확보하고 식별자를 obj2로 입력한 이후, obj1의 데이터 주소값을 복사해 넣습니다.
 
-이렇게 주소값을 참조하기 때문에, 객체의 복사 `obj2 = obj1`의 경우, obj1나 obj2가 값을 변경하여도 참조하는 주소는 동일하기 때문에 객체 변경시 서로 영향을 받게 됩니다.  
+이렇게 주소값을 참조하기 때문에, 객체의 복사 `obj2 = obj1`의 경우, obj1나 obj2가 값을 변경하여도 참조하는 주소는 동일하기 때문에 객체 변경시 서로 영향을 받게 됩니다.
 
 즉, 자바스크립트의 모든 데이터 타입은 참조형 데이터로 주소값을 참조하지만, 원시형 자료형의 경우 주소값을 복사하는 과정이 한번만 이루어지고, 참조형 자료형의 경우 단계를 더 거치기 때문에 차이가 발생하게 됩니다.
 
@@ -124,28 +126,28 @@ var obj2 = obj1;
 `undefined`의 경우 사용자가 명시적으로 지정할 수도 있지만 값이 존재하지 않을 때 JS 엔진이 자동으로 부여하는 경우도 있습니다.  
 자바스크립트 엔진은 사용자가 어떤 값을 지정할 것이라 예상되는 상황에서 실제로 사용자가 값을 지정하지 않았을 때 `undefined`를 반환합니다. 자바스크립트 엔진이 undefined를 반환하는 경우는 다음과 같습니다.
 
-* 값을 대입하지 않은 변수
-* 객체 내부의 존재하지 않는 프로퍼티에 접근
-* return 문이 없거나 호출되지 않는 함수의 실행 결과
+- 값을 대입하지 않은 변수
+- 객체 내부의 존재하지 않는 프로퍼티에 접근
+- return 문이 없거나 호출되지 않는 함수의 실행 결과
 
 ```js
-let a;;
+let a
 console.log(a) //undefined
 
-const obj = { a: 1};
+const obj = { a: 1 }
 console.log(obj.a) // 1
 console.log(obj.b) // undefined
 console.log(b) // c.f) ReferenceError : b is not defined
 
-const fn = function() {};
-var c = fn(); // undefined;
-console.log(c); // undefined
+const fn = function() {}
+var c = fn() // undefined;
+console.log(c) // undefined
 
-let arr = [];
-arr.length = 3;
+let arr = []
+arr.length = 3
 console.log(arr) // [ empty x 3];
 
-let arr2 = new Array(3);
+let arr2 = new Array(3)
 console.log(arr2) // [empty x 3];
 
 let arr3 = [undefined, undefined, undefined] // [undefined, undefined, undefined]
@@ -165,11 +167,10 @@ arr1.filter(v => !v); // [undefined]
 arr2.filter(v => !v); // []
 ```
 
-위처럼 몇몇 배열의 메서드의 경우, `empty`인 배열의 요소를 순회하지 않는 경우도 있습니다. 이는, 배열도 객체이기 때문에 값이 지정되지 않은 인덱스의 경우 '아직은 존재하지 않는  프로퍼티'에 지나지 않습니다.
+위처럼 몇몇 배열의 메서드의 경우, `empty`인 배열의 요소를 순회하지 않는 경우도 있습니다. 이는, 배열도 객체이기 때문에 값이 지정되지 않은 인덱스의 경우 '아직은 존재하지 않는 프로퍼티'에 지나지 않습니다.
 
 여기서 사용자가 명시적으로 `undefined` 를 부여한 경우와 비어있는 요소에 접근하려 할 때 반환되는 `undefined`는 비어 있음의 의미를 가지고 있지만, 전자의 `undefined`는 존재하는 값으로 동작하며, 프로퍼티나 배열의 요소는 고유의 키값이 실존하게 되어서 순회의 대상이 될 수 있습니다. 그러나 사용자가 아무것도 하지 않은 채 접근하려 했을 때 JS엔진이 반환해주는 `undefined`는 해당 프로퍼티 또는 배열의 키값 자체가 존재하지 않음을 의미합니다.
 
 그렇기 때문에, 우리가 값이 없음을 명시해 주려고 할 때, 자바스크립트 엔진이 반환해주는 `undefined`를 고수해서 사용할 필요가 없이, 개발자가 의도적으로 빈 값을 넣을 경우에 `null`을 사용하면 되고, `null`은 이런 의도로 만들어진 것 입니다.
 
 여기서 JS 버그가 존재하게 되는데, `typeof null`이 `object`라는 것 입니다. 그래서 타입 체킹을 할 때 이 부분을 유념하여 작업을 해야합니다.
-
