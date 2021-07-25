@@ -52,22 +52,22 @@ Dom event는 총 4가지의 실행 단계를 가지고 있습니다.
 
 ```html
 <div id="d1">
-    첫번째 이벤트
-    <div id="d2">
-        두번째 이벤트
-        <div id="d3">
-            세번째 이벤트
-        </div>
+  첫번째 이벤트
+  <div id="d2">
+    두번째 이벤트
+    <div id="d3">
+      세번째 이벤트
     </div>
+  </div>
 </div>
 <script>
-    const getDomById = id => document.getElementById(id);
-    const d1 = getDomById('d1');
-    const d2 = getDomById('d2');
-    const d3 = getDomById('d3');
-    d1.addEventListener('click', (e) => console.log('d1 called', e.target.id));
-    d2.addEventListener('click', (e) => console.log('d2 called', e.target.id));
-    d3.addEventListener('click', (e) => console.log('d3 called', e.target.id));
+  const getDomById = id => document.getElementById(id)
+  const d1 = getDomById("d1")
+  const d2 = getDomById("d2")
+  const d3 = getDomById("d3")
+  d1.addEventListener("click", e => console.log("d1 called", e.target.id))
+  d2.addEventListener("click", e => console.log("d2 called", e.target.id))
+  d3.addEventListener("click", e => console.log("d3 called", e.target.id))
 </script>
 ```
 
@@ -83,23 +83,27 @@ d3 => d2 => d1 순으로 호출이 됩니다. 자바스크립트의 이벤트들
 
 ```html
 <div id="d1">
-        첫번째 이벤트
-        <div id="d2">
-            두번째 이벤트
-            <div id="d3">
-                세번째 이벤트
-            </div>
-        </div>
+  첫번째 이벤트
+  <div id="d2">
+    두번째 이벤트
+    <div id="d3">
+      세번째 이벤트
     </div>
-    <script>
-        const getDomById = id => document.getElementById(id);
-        const d1 = getDomById('d1');
-        const d2 = getDomById('d2');
-        const d3 = getDomById('d3');
-        d1.addEventListener('click', (e) => console.log('d1 called', e.target.id, e), {capture: true});
-        d2.addEventListener('click', (e) => console.log('d2 called', e.target.id, e), {capture: true});
-        d3.addEventListener('click', (e) => console.log('d3 called', e.target.id, e));
-    </script>
+  </div>
+</div>
+<script>
+  const getDomById = id => document.getElementById(id)
+  const d1 = getDomById("d1")
+  const d2 = getDomById("d2")
+  const d3 = getDomById("d3")
+  d1.addEventListener("click", e => console.log("d1 called", e.target.id, e), {
+    capture: true,
+  })
+  d2.addEventListener("click", e => console.log("d2 called", e.target.id, e), {
+    capture: true,
+  })
+  d3.addEventListener("click", e => console.log("d3 called", e.target.id, e))
+</script>
 ```
 
 이경우 d1 => d2 => d3 순으로 나타나게 됩니다.
@@ -127,29 +131,31 @@ MDN의 [이벤트 입문](https://developer.mozilla.org/ko/docs/Learn/JavaScript
 
 ```html
 <ul id="uls">
-    <li class="lis">1</li>
-    <li class="lis">2</li>
-    <li class="lis">3</li>
-    <li class="lis">4</li>
-    <li class="lis">5</li>
-    <li class="lis">6</li>
-    <li class="lis">7</li>
-    <li class="lis">8</li>
-    <li class="lis">9</li>
-    <li class="lis">10</li>
-    <li class="lis">11</li>
-    <li class="lis">12</li>
-    <li class="lis">13</li>
-    <li class="lis">14</li>
-    <li class="lis">15</li>
-    <li class="lis">16</li>
-    <li class="lis">17</li>
-    <li class="lis">18</li>
-    <li class="lis">19</li>
-    <li class="lis">20</li>
+  <li class="lis">1</li>
+  <li class="lis">2</li>
+  <li class="lis">3</li>
+  <li class="lis">4</li>
+  <li class="lis">5</li>
+  <li class="lis">6</li>
+  <li class="lis">7</li>
+  <li class="lis">8</li>
+  <li class="lis">9</li>
+  <li class="lis">10</li>
+  <li class="lis">11</li>
+  <li class="lis">12</li>
+  <li class="lis">13</li>
+  <li class="lis">14</li>
+  <li class="lis">15</li>
+  <li class="lis">16</li>
+  <li class="lis">17</li>
+  <li class="lis">18</li>
+  <li class="lis">19</li>
+  <li class="lis">20</li>
 </ul>
 <script>
-    document.getElementById('uls').addEventListener('click', e => alert(e.target.textContent))
+  document
+    .getElementById("uls")
+    .addEventListener("click", e => alert(e.target.textContent))
 </script>
 ```
 
@@ -175,8 +181,8 @@ MDN의 [이벤트 입문](https://developer.mozilla.org/ko/docs/Learn/JavaScript
 
 브라우저 기본 동작을 막는 방법은 두가지가 있습니다.
 
-* event 객체를 사용해서, **event**객체에 구현된 **event.preventDefault()** 를 사용합니다.
-* 핸들러가 **addEventListener**가 아닌 **onEvent** 를 사용한 경우 false를 반환해 기본 동작을 막을 수 있습니다.
+- event 객체를 사용해서, **event**객체에 구현된 **event.preventDefault()** 를 사용합니다.
+- 핸들러가 **addEventListener**가 아닌 **onEvent** 를 사용한 경우 false를 반환해 기본 동작을 막을 수 있습니다.
 
 ### 3.2 passive
 
@@ -187,69 +193,69 @@ addEventListener의 세번째 인자로 객체를 넣을 경우, **passive**라�
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        #app {
-            width: 100vw;
-            height: 100vh;
-            background-color: rgb(173, 47, 144);
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #app {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(173, 47, 144);
+      }
 
-        #move {
-            width: 30px;
-            height: 30px;
-            left: 30px;
-            top: 30px;
-            position: absolute;
-            background-color: rgb(132,219, 194);
-        }
+      #move {
+        width: 30px;
+        height: 30px;
+        left: 30px;
+        top: 30px;
+        position: absolute;
+        background-color: rgb(132, 219, 194);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <div id="move"></div>
+      <div id="move"></div>
     </div>
     <script>
-        const move = document.getElementById('move');
-        let startCoord = null;
-        const touchmove = (e)  => {
-            if (e.changedTouches.length === 1) {
-                const touches = e.changedTouches[0];
-                const coord = {
-                    x: touches.clientX - startCoord.x,
-                    y: touches.clientY - startCoord.y
-                };
-                move.style.left = coord.x + 'px';
-                move.style.top = coord.y + 'px';
-            }
+      const move = document.getElementById("move")
+      let startCoord = null
+      const touchmove = e => {
+        if (e.changedTouches.length === 1) {
+          const touches = e.changedTouches[0]
+          const coord = {
+            x: touches.clientX - startCoord.x,
+            y: touches.clientY - startCoord.y,
+          }
+          move.style.left = coord.x + "px"
+          move.style.top = coord.y + "px"
         }
-        const touchend = (e) => {
-            startCoord = null;
-            window.removeEventListener('touchmove', touchmove);
-            window.removeEventListener('touchend', touchend);
+      }
+      const touchend = e => {
+        startCoord = null
+        window.removeEventListener("touchmove", touchmove)
+        window.removeEventListener("touchend", touchend)
+      }
+      const touchstart = e => {
+        if (e.changedTouches.length === 1) {
+          const touches = e.changedTouches[0]
+          startCoord = {
+            x: touches.clientX - move.offsetLeft,
+            y: touches.clientY - move.offsetTop,
+          }
         }
-        const touchstart = (e) => {
-            if (e.changedTouches.length === 1) {
-                const touches = e.changedTouches[0];
-                startCoord = {
-                    x: touches.clientX - move.offsetLeft,
-                    y: touches.clientY - move.offsetTop
-                };
-            }
-            window.addEventListener('touchmove', touchmove);
-            window.addEventListener('touchend', touchend)
-        }
-        move.addEventListener('touchstart', touchstart);
+        window.addEventListener("touchmove", touchmove)
+        window.addEventListener("touchend", touchend)
+      }
+      move.addEventListener("touchstart", touchstart)
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -272,17 +278,17 @@ Firefox, Chrome 같은 몇몇 브라우저에서 touchstart 와 touchmove 이벤
 설명한 것 처럼, **preventDefault**를 추가 해 봤습니다.
 
 ```javascript
-const touchmove = (e)  => {
-    if (e.changedTouches.length === 1) {
-        e.preventDefault();
-        const touches = e.changedTouches[0];
-        const coord = {
-            x: touches.clientX - startCoord.x,
-            y: touches.clientY - startCoord.y
-        };
-        move.style.left = coord.x + 'px';
-        move.style.top = coord.y + 'px';
+const touchmove = e => {
+  if (e.changedTouches.length === 1) {
+    e.preventDefault()
+    const touches = e.changedTouches[0]
+    const coord = {
+      x: touches.clientX - startCoord.x,
+      y: touches.clientY - startCoord.y,
     }
+    move.style.left = coord.x + "px"
+    move.style.top = coord.y + "px"
+  }
 }
 ```
 
@@ -294,16 +300,16 @@ const touchmove = (e)  => {
 이를 해결하기 위해, **addEventListener**에 **passive: false**를 추가했습니다.
 
 ```javascript
-const touchstart = (e) => {
-    if (e.changedTouches.length === 1) {
-        const touches = e.changedTouches[0];
-        startCoord = {
-            x: touches.clientX - move.offsetLeft,
-            y: touches.clientY - move.offsetTop
-        };
+const touchstart = e => {
+  if (e.changedTouches.length === 1) {
+    const touches = e.changedTouches[0]
+    startCoord = {
+      x: touches.clientX - move.offsetLeft,
+      y: touches.clientY - move.offsetTop,
     }
-    window.addEventListener('touchmove', touchmove, {passive: false}); // passive: false
-    window.addEventListener('touchend', touchend)
+  }
+  window.addEventListener("touchmove", touchmove, { passive: false }) // passive: false
+  window.addEventListener("touchend", touchend)
 }
 ```
 
@@ -318,19 +324,19 @@ event 객체의 프로퍼티중에 **defaultPrevented**라는 값이 있습니�
 
 수 많은 문서에서 `stopPropagation` 을 왠만하면 사용하지 않는 것을 권장합니다. 그 이유에 대해서 `javascript info`에서는 이렇게 설명했습니다.
 
-> 버블링은 유용합니다. 버블링을 꼭 멈춰야 하는 명백한 상황이 아니라면 버블링을 막지 마세요. 아키텍처를 잘 고려해 진짜 막아야 하는 상황에서만 버블링을 막으세요.  
-> 
-> event.stopPropagation()은 추후에 문제가 될 수 있는 상황을 만들어낼 수 있습니다.  
-> 
-> 문제가 발생할만한 시나리오를 살펴봅시다.  
-> 
+> 버블링은 유용합니다. 버블링을 꼭 멈춰야 하는 명백한 상황이 아니라면 버블링을 막지 마세요. 아키텍처를 잘 고려해 진짜 막아야 하는 상황에서만 버블링을 막으세요.
+>
+> event.stopPropagation()은 추후에 문제가 될 수 있는 상황을 만들어낼 수 있습니다.
+>
+> 문제가 발생할만한 시나리오를 살펴봅시다.
+>
 > 중첩 메뉴를 만들었다 가정합시다.  
-> 각 서브메뉴(submenu)에 해당하는 요소에서 클릭 이벤트를 처리하도록 하고, 상위 메뉴의 클릭 이벤트 핸들러는 동작하지 않도록 stopPropagation을 적용합니다.  
-> 
-사람들이 페이지에서 어디를 클릭했는지 등의 행동 패턴을 분석하기 위해, window내에서 발생하는 클릭 이벤트 전부를 감지하기로 결정합니다. 분석 시스템을 도입하기로 합니다. 그런데 이런 분석 시스템의 코드는 클릭 이벤트를 감지하기 위해 document.addEventListener('click'…)을 사용합니다.
+> 각 서브메뉴(submenu)에 해당하는 요소에서 클릭 이벤트를 처리하도록 하고, 상위 메뉴의 클릭 이벤트 핸들러는 동작하지 않도록 stopPropagation을 적용합니다.
+>
+> 사람들이 페이지에서 어디를 클릭했는지 등의 행동 패턴을 분석하기 위해, window내에서 발생하는 클릭 이벤트 전부를 감지하기로 결정합니다. 분석 시스템을 도입하기로 합니다. 그런데 이런 분석 시스템의 코드는 클릭 이벤트를 감지하기 위해 document.addEventListener('click'…)을 사용합니다.
 >
 > stopPropagation로 버블링을 막아놓은 영역에선 분석 시스템의 코드가 동작하지 않기 때문에, 분석이 제대로 되지 않습니다. 안타깝게도 stopPropagation을 사용한 영역은 '죽은 영역(dead zone)'이 되어버립니다.  
-이벤트 버블링을 막아야 하는 경우는 거의 없습니다. 버블링을 막아야 해결되는 문제라면 커스텀 이벤트 등을 사용해 문제를 해결할 수 있습니다. 
+> 이벤트 버블링을 막아야 하는 경우는 거의 없습니다. 버블링을 막아야 해결되는 문제라면 커스텀 이벤트 등을 사용해 문제를 해결할 수 있습니다.
 
 ```html
 <p>문서 레벨 컨텍스트 메뉴(event.defaultPrevented를 확인함)</p>
@@ -338,23 +344,25 @@ event 객체의 프로퍼티중에 **defaultPrevented**라는 값이 있습니�
 
 <script>
   elem.oncontextmenu = function(event) {
-    event.preventDefault();
-    alert("버튼 컨텍스트 메뉴");
-  };
+    event.preventDefault()
+    alert("버튼 컨텍스트 메뉴")
+  }
 
   document.oncontextmenu = function(event) {
-    if (event.defaultPrevented) return;
+    if (event.defaultPrevented) return
 
-    event.preventDefault();
-    alert("문서 컨텍스트 메뉴");
-  };
+    event.preventDefault()
+    alert("문서 컨텍스트 메뉴")
+  }
 </script>
 
-## 4. 마무리
-
-이벤트의 종류는 정말 많고, 그 안에서 제가 사용하는 이벤트의 수는 한정적입니다. 또한, 저는 이벤트의 인터페이스로 노출된 것들을 생각 없이 사용했었는데 이번 기회에 조금 더 이해할 수 있는 계기가 되었습니다.
-
-이벤트의 수많은 프로퍼티와 함수, 그리고 디테일한 이벤트(touchmove, touchstart) 및, 제가 앞으로 사용해야 할 이벤트가 있을 때 대충 이벤트의 값만 확인하는게 아닌, 조금더 구체적이고 문제가 될 수 있는 상황을 방지하기 위해 문서를 더 적극적으로 봐야 겠다는 생각이 들었습니다.
+## 4. 마무리 이벤트의 종류는 정말 많고, 그 안에서 제가 사용하는 이벤트의 수는
+한정적입니다. 또한, 저는 이벤트의 인터페이스로 노출된 것들을 생각 없이
+사용했었는데 이번 기회에 조금 더 이해할 수 있는 계기가 되었습니다. 이벤트의
+수많은 프로퍼티와 함수, 그리고 디테일한 이벤트(touchmove, touchstart) 및, 제가
+앞으로 사용해야 할 이벤트가 있을 때 대충 이벤트의 값만 확인하는게 아닌, 조금더
+구체적이고 문제가 될 수 있는 상황을 방지하기 위해 문서를 더 적극적으로 봐야
+겠다는 생각이 들었습니다.
 ```
 
 ## 참고자료
