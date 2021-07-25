@@ -88,7 +88,6 @@ li {
 blockquote {
     border-left: 0.25em solid var(--color-gray-3);
     padding: 0em 0.75em;
-    font-style: italic;
     margin-left: 2.25em;
     margin-right: 2.25em;
 }
