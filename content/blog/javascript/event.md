@@ -373,9 +373,9 @@ event 객체의 프로퍼티중에 **defaultPrevented**라는 값이 있습니�
 
 ## 참고자료
 
-[Event.eventPhase](https://developer.mozilla.org/ko/docs/Web/API/Event/eventPhase)
-[What is event bubbling and capturing?](https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing)
-[javascript.info](https://ko.javascript.info/bubbling-and-capturing)
-[이벤트 입문](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/Events)
-[javscript.info 이벤트 위임](https://ko.javascript.info/event-delegation)
+[Event.eventPhase](https://developer.mozilla.org/ko/docs/Web/API/Event/eventPhase)  
+[What is event bubbling and capturing?](https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing)  
+[javascript.info](https://ko.javascript.info/bubbling-and-capturing)  
+[이벤트 입문](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/Events)  
+[javscript.info 이벤트 위임](https://ko.javascript.info/event-delegation)  
 [javascrfipt.info 브라우저 기본동작](https://ko.javascript.info/default-browser-action)
