@@ -275,6 +275,9 @@ passive: true 옵션은 핸들러가 스크롤링을 취소하지 않을 것이�
 
 Firefox, Chrome 같은 몇몇 브라우저에서 touchstart 와 touchmove 이벤트의 passive 는 기본값이 true입니다.
 
+> safari 및 IE의 경우 touchstart와 touchmove에 대한 passive: true가 설정되어 있지 않습니다.
+> 그래고 현재 브라우저 점유율 중 Chrome이 선두 주자를 달리기 때문에, passive 옵션을 추가 해 주는 것이 좋습니다.
+
 설명한 것 처럼, **preventDefault**를 추가 해 봤습니다.
 
 ```javascript
