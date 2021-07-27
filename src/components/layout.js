@@ -12,6 +12,7 @@ class Layout extends Component {
             <input
               type="checkbox"
               onChange={e =>{
+                  console.log(1);
                   console.log(process.env.GA_KEY);
                   toggleTheme(e.target.checked ? "dark" : "light")
                 }
