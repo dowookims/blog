@@ -11,8 +11,10 @@ class Layout extends Component {
           <label className="tog">
             <input
               type="checkbox"
-              onChange={e =>
-                toggleTheme(e.target.checked ? "dark" : "light")
+              onChange={e =>{
+                  console.log(process.env.GA_KEY);
+                  toggleTheme(e.target.checked ? "dark" : "light")
+                }
               }
               checked={theme === "dark"}
               className="tog-checkbox"
