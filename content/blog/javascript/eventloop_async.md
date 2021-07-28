@@ -1,9 +1,9 @@
 ---
-title: JAVASCIPRT Eventloof와 비동기 처리에 대해 알아보자
+title: JAVASCIPRT Eventloop와 비동기 처리에 대해 알아보자
 date: "2021-07-27"
 tags: [javascript]
-description: "Eventloof와 비동기 처리에 대해 알아보는 시간을 가지도록 하도록 하도록 합시다."
-thumbnail: ./imgs/eventloof.png
+description: "Eventloop와 비동기 처리에 대해 알아보는 시간을 가지도록 하도록 하도록 합시다."
+thumbnail: ./imgs/eventloop.png
 ---
 
 ## Intro
