@@ -12,14 +12,6 @@ https://dowoo.kim
 
 ---
 
-### BOOK
-
-#### Javascript
-
-- 코어 자바스크립트
-
----
-
 ### Thanks to
 
 Gatsby BLOG인 Vapor THEME을 사용하였습니다.
