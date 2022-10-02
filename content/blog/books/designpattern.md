@@ -3,7 +3,7 @@ title: 헤드스 디인ㅐㅓ
 date: "2022-10-2"
 tags: [books, software, design]
 description: "디자인 패턴에 대해 알아보자"
-thumbnail: ./imgs/design.jepg
+thumbnail: ./imgs/design.jpeg
 ---
 
 "한빛미디어 <나는 리뷰어다> 활동을 위해서 책을 제공받아 작성된 서평입니다"
