@@ -1,6 +1,6 @@
 ---
 title: 헤드퍼스트 디자인패턴
-date: "2022-10-2"
+date: "2022-10-02"
 tags: [books, software, design]
 description: "디자인 패턴에 대해 알아보자"
 thumbnail: ./imgs/design.jpeg
