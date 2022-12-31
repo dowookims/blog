@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const _ = require("lodash");
+const _ = require("lodash")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
-  const tagSet = new Set();
+  const tagSet = new Set()
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -55,20 +55,21 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // Create blog index per 5 pages.
-    index % 5 === 0 && createPage({
-      path: index === 0 ? `/` :`/${index / 5 + 1}`,
-      component: blogIndex,
-      context: {
-        index: index,
-        postCount: postCount
-      },
-    },)
+    index % 10 === 0 &&
+      createPage({
+        path: index === 0 ? `/` : `/${index / 10 + 1}`,
+        component: blogIndex,
+        context: {
+          index: index,
+          postCount: postCount,
+        },
+      })
 
     // Get tags for tag pages.
     if (post.node.frontmatter.tags) {
       post.node.frontmatter.tags.forEach(tag => {
-        tagSet.add(tag);
-      });
+        tagSet.add(tag)
+      })
     }
 
     // Create tag pages.
@@ -77,11 +78,10 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/tags/${_.kebabCase(tag)}/`,
         component: tagPage,
         context: {
-          tag
-        }
-      });
-    });
-
+          tag,
+        },
+      })
+    })
   })
 }
 
