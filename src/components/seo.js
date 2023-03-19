@@ -68,11 +68,17 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
-          name:"naver-site-verification",
-          content:"e9ecbd0e2731f87c3cc46c3c4b58fae308bcad94"
-        }
+          name: "naver-site-verification",
+          content: "e9ecbd0e2731f87c3cc46c3c4b58fae308bcad94",
+        },
       ].concat(meta)}
-    />
+    >
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7651182413552619"
+        crossorigin="anonymous"
+      ></script>
+    </Helmet>
   )
 }
 
