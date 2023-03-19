@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "doe_devlog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Doe`s devlog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "doe <kaei2574@gmail.com>",
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "gatsby": "^2.18.12",
@@ -36,10 +33,7 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
+  "homepage": "https://dowoo.kim",
   "license": "MIT",
   "main": "n/a",
   "repository": {

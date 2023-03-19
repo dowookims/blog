@@ -22,7 +22,7 @@ class BlogIndexTemplate extends React.Component {
 
     return (
       <Layout title={siteTitle}>
-        <SEO title="DouglasK의 Devlog" />
+        <SEO title="Doe의 Devlog" />
         {posts.map(({ node }) => {
           return (
             <PostCard key={node.fields.slug} node={node} postClass={`post`} />

@@ -1,10 +1,10 @@
-const remark = require("remark");
+const remark = require("remark")
 
 module.exports = {
   siteMetadata: {
-    title: `DouglasK`,
-    author: `dowookims`,
-    description: `주니어 프론트엔드 개발자 DouglasK의 개발 블로그 입니다. 자바스크립트와 Vue, React와 CSS 그리고 개발 일지에 대해 기록합니다.`,
+    title: `Doe의 devlog`,
+    author: `doe`,
+    description: `프론트엔드 개발자 Doe의 개발 블로그 입니다. 개발 일지와 이런 저런 것을 기록합니다.`,
     siteUrl: `https://dowoo.kim/`,
   },
   plugins: [
@@ -80,12 +80,15 @@ module.exports = {
             slug: node => node.fields.slug,
             body: node => String(remark().processSync(node.rawMarkdownBody)),
             excerpt: node => {
-              const text = remark().processSync(node.rawMarkdownBody);
-              const excerptLength = 139; // Hard coded excerpt length
-              return node.rawMarkdownBody && String(text).substring(0, excerptLength) + "...";
+              const text = remark().processSync(node.rawMarkdownBody)
+              const excerptLength = 139 // Hard coded excerpt length
+              return (
+                node.rawMarkdownBody &&
+                String(text).substring(0, excerptLength) + "..."
+              )
             },
             date: node => {
-              const months= [
+              const months = [
                 "January",
                 "February",
                 "March",
@@ -97,15 +100,21 @@ module.exports = {
                 "September",
                 "October",
                 "November",
-                "December"
-              ];
-              const date = new Date(node.frontmatter.date);
-              return months[date.getUTCMonth(0)] + " " + date.getUTCDate(0) + ", " + date.getUTCFullYear(0);
+                "December",
+              ]
+              const date = new Date(node.frontmatter.date)
+              return (
+                months[date.getUTCMonth(0)] +
+                " " +
+                date.getUTCDate(0) +
+                ", " +
+                date.getUTCFullYear(0)
+              )
             },
           },
         },
       },
     },
-    'gatsby-plugin-dark-mode',
+    "gatsby-plugin-dark-mode",
   ],
 }
