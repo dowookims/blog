@@ -3,7 +3,7 @@ title: 육각형 개발자
 date: "2023-08-27"
 tags: ["책", "커리어성장", "도서서평"]
 description: "더나은 개발자가 되기 위해 어떤 것들을 더 키워야 할까?"
-thumbnail: ./imgs/hexagon_dev.jpg
+thumbnail: ./imgs/hexagon.jpg
 ---
 
 ## 0. 들어가기에 앞서
