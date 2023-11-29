@@ -2,7 +2,7 @@
 title: "레저티켓 론칭 회고"
 date: "2023-11-29"
 tags: ["retrospection", "leisure-ticket"]
-description: "레저 티켓을 론칭하고 난 뒤 느낀 회고"
+description: "레저 티켓을 론칭하고 난 뒤 작성하는 개인 회고"
 thumbnail: ./imgs/leisure.png
 ---
 
