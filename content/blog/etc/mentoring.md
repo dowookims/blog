@@ -1,5 +1,5 @@
 ---
-title: 사람인 멘토링을 하면서 느낀점
+title: 사람인 멘토링을 하면서 느낀점에 대해
 date: "2024-03-03"
 tags: [etc, mentoring]
 description: "2024년 1월 ~ 2월 24번의 멘토링을 회고 해 보았습니다"
