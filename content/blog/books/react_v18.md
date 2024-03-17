@@ -266,8 +266,8 @@ const SlowPost = ({ index }: { index: number }) => {
 ### **주의사항**
 
 - `useDeferredValue`에 전달하는 값은 문자열 및 숫자와 같은 원시값이거나, 컴포넌트의 외부에서 생성된 객체여야 합니다. 렌더링 중에 새 객체를 생성하고 즉시 `useDeferredValue`에 전달하면 렌더링할 때마다 값이 달라져 불필요한 백그라운드 리렌더링이 발생할 수 있습니다.
-- `useDeferredValue`가 현재 렌더링(여전히 이전 값을 사용하는 경우) 외에 다른 값(`[Object.is](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is)`로 비교)을 받으면 백그라운드에서 새 값으로 리렌더링하도록 예약합니다. `값`에 대한 또 다른 업데이트가 있으면 백그라운드 리렌더링은 중단될 수 있습니다. React는 백그라운드 리렌더링을 처음부터 다시 시작할 것입니다. 예를 들어 차트가 리렌더링 가능한 지연된 값을 받는 속도보다 사용자가 input에 값을 입력하는 속도가 더 빠른 경우, 차트는 사용자가 입력을 멈춘 후에만 리렌더링됩니다.
-- `useDeferredValue`는 `[<Suspense>](https://ko.react.dev/reference/react/Suspense)`와 통합됩니다. 새로운 값으로 인한 백그라운드 업데이트로 인해 UI가 일시 중단되면 사용자는 폴백을 볼 수 없습니다. 데이터가 로딩될 때까지 이전 지연된 값이 표시됩니다.
+- `useDeferredValue`가 현재 렌더링(여전히 이전 값을 사용하는 경우) 외에 다른 값(**[Object.is](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is)**로 비교)을 받으면 백그라운드에서 새 값으로 리렌더링하도록 예약합니다. `값`에 대한 또 다른 업데이트가 있으면 백그라운드 리렌더링은 중단될 수 있습니다. React는 백그라운드 리렌더링을 처음부터 다시 시작할 것입니다. 예를 들어 차트가 리렌더링 가능한 지연된 값을 받는 속도보다 사용자가 input에 값을 입력하는 속도가 더 빠른 경우, 차트는 사용자가 입력을 멈춘 후에만 리렌더링됩니다.
+- `useDeferredValue`는 **[Suspense](https://ko.react.dev/reference/react/Suspense)** 와 통합됩니다. 새로운 값으로 인한 백그라운드 업데이트로 인해 UI가 일시 중단되면 사용자는 폴백을 볼 수 없습니다. 데이터가 로딩될 때까지 이전 지연된 값이 표시됩니다.
 - `useDeferredValue` 자체로 인한 고정된 지연은 없습니다. React는 원래의 리렌더링을 완료하자마자 즉시 새로운 지연된 값으로 백그라운드 리렌더링 작업을 시작합니다. 그러나 이벤트로 인한 업데이트(예: 타이핑)는 백그라운드 리렌더링을 중단하고 우선순위를 갖습니다.
 - `useDeferredValue`로 인한 백그라운드 리렌더링은 화면에 커밋될 때까지 Effects를 실행하지 않습니다. 백그라운드 리렌더링이 일시 중단되면 데이터가 로딩되고 UI가 업데이트된 후에 해당 Effects가 실행됩니다.
 
