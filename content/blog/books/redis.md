@@ -3,7 +3,7 @@ title: 실전 레디스 기초, 실전, 고급 단계별로 배우는 레디스 
 date: "2024-06-23"
 tags: [books, 실전 레디스]
 description: "실전 레디스 : 기초, 실전, 고급 단계별로 배우는 레디스 핵심 가이드 도서 서평"
-thumbnail: ./imgs/redis.jpeg
+thumbnail: ./imgs/redis.jpg
 ---
 
 ## 0. 들어가기에 앞서
